@@ -34,7 +34,7 @@ export function ExpandablePanel({ icon, title, text, bullets, badge }: any) {
         data-interactive="true"
         onClick={(e) => {
           e.stopPropagation();
-          setOpen((v) => !v);
+          setOpen((v: boolean) => !v);
         }}
         className="w-full text-left p-4 md:p-5 flex items-start gap-4 hover:bg-slate-50 transition"
       >
@@ -84,7 +84,7 @@ export function TimelineStage({ item, openDefault = false }: any) {
           data-interactive="true"
           onClick={(e) => {
             e.stopPropagation();
-            setOpen((v) => !v);
+            setOpen((v: boolean) => !v);
           }}
           className="absolute top-4 right-4 rounded-full bg-white/80 p-2 border border-white/70 z-10 hover:bg-white transition-colors"
           aria-label="Abrir legenda"
@@ -163,7 +163,7 @@ export function NodeItem({ color, title, text, note, delay = 0 }: any) {
         data-interactive="true"
         onClick={(e) => {
           e.stopPropagation();
-          setOpen((v) => !v);
+          setOpen((v: boolean) => !v);
         }}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
