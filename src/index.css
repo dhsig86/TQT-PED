@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-slate-900;
+  }
+}
+
+.clip-risk-top {
+  clip-path: polygon(20% 0, 80% 0, 100% 100%, 0% 100%);
+}
+.clip-risk-mid {
+  clip-path: polygon(10% 0, 90% 0, 100% 100%, 0% 100%);
+}
+.clip-risk-base {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
