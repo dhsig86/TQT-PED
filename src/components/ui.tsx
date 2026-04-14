@@ -58,11 +58,11 @@ export function ModalOverlay({ open, setOpen, children }: { open: boolean, setOp
              animate={{ scale: 1, opacity: 1, y: 0 }}
              exit={{ scale: 0.95, opacity: 0, y: 30 }}
              transition={{ duration: 0.3, ease: "easeOut" }}
-             className="bg-white rounded-[2.5rem] shadow-2xl overflow-y-auto w-full max-w-4xl max-h-full flex flex-col relative"
+             className="bg-white rounded-[2rem] shadow-2xl overflow-y-auto w-full max-w-4xl max-h-[90vh] flex flex-col relative my-auto"
              onClick={(e) => e.stopPropagation()}
           >
-             <button aria-label="Fechar Contexto" onClick={() => setOpen(false)} className="absolute top-6 right-6 bg-slate-100 p-3 rounded-full hover:bg-slate-200 transition-colors z-20 border border-slate-200 shadow-sm">
-                <X className="w-6 h-6 text-slate-700"/>
+             <button aria-label="Fechar Contexto" onClick={() => setOpen(false)} className="absolute top-4 right-4 bg-slate-100/50 backdrop-blur p-2.5 rounded-full hover:bg-slate-200 transition-colors z-20 border border-slate-200/50 shadow-sm">
+                <X className="w-5 h-5 text-slate-700"/>
              </button>
              {children}
           </motion.div>
@@ -142,25 +142,25 @@ export function TimelineStage({ item }: any) {
       </div>
 
       {/* Corpo compacto */}
-      <div className="p-4 lg:p-5 flex-1 flex flex-col overflow-hidden items-center justify-center text-center bg-slate-50">
-        <div className="text-[11px] lg:text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 bg-white border border-slate-200 shadow-sm px-3 py-1 rounded-full">{item.short}</div>
-        <div className="text-sm font-semibold text-slate-600 leading-relaxed">{item.headline || "Acesse contexto da fase"}</div>
+      <div className="p-3 lg:p-4 flex-1 flex flex-col overflow-hidden items-center justify-start text-center bg-white/50 backdrop-blur-md">
+        <div className="text-[10px] lg:text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 bg-white border border-slate-200 shadow-sm px-3 py-1 rounded-full drop-shadow-sm">{item.short}</div>
+        <div className="text-xs lg:text-sm font-semibold text-slate-600 leading-snug line-clamp-3">{item.headline || "Acesse contexto da fase"}</div>
       </div>
     </div>
 
     <ModalOverlay open={open} setOpen={setOpen}>
-        <div className={`bg-gradient-to-br ${item.color} p-8 lg:p-12 text-white`}>
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-white/80 mb-3">{item.year}</div>
-            <h2 className="text-4xl lg:text-5xl font-black">{item.label} — {item.short}</h2>
+        <div className={`bg-gradient-to-br ${item.color} p-6 lg:p-8 text-white flex-shrink-0`}>
+            <div className="text-xs font-bold uppercase tracking-[0.2em] text-white/90 mb-2">{item.year}</div>
+            <h2 className="text-[clamp(1.75rem,4vw,3rem)] font-black w-11/12 leading-tight">{item.label} — {item.short}</h2>
         </div>
-        <div className="p-8 lg:p-12 bg-white text-slate-800 flex flex-col gap-8">
-           <h3 className="text-2xl font-bold text-slate-700">{item.headline}</h3>
-           <p className="text-lg text-slate-600 font-medium leading-relaxed">{item.note}</p>
+        <div className="p-6 lg:p-8 bg-white text-slate-800 flex flex-col gap-5 flex-1 overflow-visible">
+           <h3 className="text-xl lg:text-2xl font-bold text-slate-700">{item.headline}</h3>
+           <p className="text-base lg:text-lg text-slate-600 font-medium leading-relaxed">{item.note}</p>
            {item.bullets && (
-             <div className="space-y-4 bg-slate-50 p-6 rounded-3xl border border-slate-100">
-                <div className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">Marcadores Evolutivos</div>
+             <div className="space-y-3 bg-slate-50 p-5 rounded-2xl border border-slate-100 mt-2">
+                <div className="text-[10px] lg:text-xs font-bold text-slate-400 uppercase tracking-widest mb-3 border-b border-slate-200 pb-2">Marcadores Evolutivos</div>
                 {item.bullets.map((b:string, i:number) => (
-                  <div key={i} className="flex gap-4 items-start text-base lg:text-lg font-medium text-slate-700">
+                  <div key={i} className="flex gap-3 items-start text-sm lg:text-base font-medium text-slate-700 leading-snug">
                      <span className="text-slate-400 font-black shrink-0">•</span>
                      <span>{b}</span>
                   </div>

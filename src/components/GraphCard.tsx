@@ -39,16 +39,6 @@ export function GraphCard({ count }: { count: number }) {
         })}
       </div>
 
-      <div className="mt-4 text-[11px] text-slate-500 leading-relaxed shrink-0">
-        O gráfico cresce junto com a narrativa: sai da dominância infecciosa e
-        chega ao paciente complexo, com maior demanda de organização do risco longitudinal.
-      </div>
-
-      <div className="mt-3 rounded-xl bg-slate-50 border border-slate-100 px-3 py-2 shrink-0">
-        <div className="text-[10px] leading-relaxed text-slate-500">
-          <strong>Referências:</strong> Dal’Astra, 2017; Douglas, 2015; Roberts, 2019; Pacheco, 2021.
-        </div>
-      </div>
     </div>
   );
 }
