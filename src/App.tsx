@@ -19,6 +19,7 @@ import SlideMismatch from "./slides/SlideMismatch";
 import SlideBundle from "./slides/SlideBundle";
 import SlideDecanulacao from "./slides/SlideDecanulacao";
 import SlideTakehome from "./slides/SlideTakehome";
+import SlideReferencias from "./slides/SlideReferencias";
 
 function useKeyboardNavigation(index: number, setIndex: React.Dispatch<React.SetStateAction<number>>, step: number, setStep: React.Dispatch<React.SetStateAction<number>>, maxStep: number) {
   useEffect(() => {
@@ -238,6 +239,7 @@ export default function App() {
           {slide.id === "bundle" ? <SlideBundle step={step} /> : null}
           {slide.id === "decanulacao" ? <SlideDecanulacao step={step} /> : null}
           {slide.id === "takehome" ? <SlideTakehome step={step} /> : null}
+          {slide.id === "referencias" ? <SlideReferencias step={step} /> : null}
         </motion.div>
 
         <ProgressDots index={index} />
