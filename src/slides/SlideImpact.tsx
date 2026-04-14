@@ -10,10 +10,10 @@ function StatCard({ number, text, color, delay }: { number: string, text: string
       transition={{ duration: 0.4, delay }}
       className={`p-6 md:p-8 rounded-[2rem] border bg-white shadow-xl flex flex-col items-center text-center gap-4 ${color}`}
     >
-      <div className="text-6xl md:text-[5rem] lg:text-[7rem] font-black tracking-tighter leading-none text-slate-800">
-        {number}<span className="text-4xl md:text-5xl text-slate-400 font-bold ml-1">%</span>
+      <div className="text-6xl md:text-7xl lg:text-[5.5rem] font-black tracking-tighter leading-none text-slate-800">
+        {number}<span className="text-3xl md:text-4xl text-slate-500 font-bold ml-1">%</span>
       </div>
-      <div className="text-base md:text-lg lg:text-xl font-medium text-slate-600 leading-snug">
+      <div className="text-sm md:text-base lg:text-lg font-medium text-slate-600 leading-snug">
         {text}
       </div>
     </motion.div>
@@ -22,14 +22,14 @@ function StatCard({ number, text, color, delay }: { number: string, text: string
 
 export default function SlideImpact({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col items-center justify-center py-6">
-      <div className="w-full max-w-6xl mx-auto space-y-12">
+    <div className="h-full flex flex-col items-center justify-start lg:justify-center py-2 min-h-0">
+      <div className="w-full max-w-6xl mx-auto flex flex-col gap-6 lg:gap-10">
         <Reveal show={step >= 1}>
           <div className="text-center max-w-4xl mx-auto space-y-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800 leading-tight">
-              A traqueostomia salva vidas, mas o custo infligido ao paciente pode ser imenso.
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
+              A Traqueostomia Salva Vidas, Mas o Custo Infligido ao Paciente Pode Ser Imenso.
             </h2>
-            <p className="text-lg md:text-xl text-slate-500">
+            <p className="text-base md:text-lg lg:text-xl text-slate-600">
               Não se trata apenas de uma decisão técnica intraoperatória, mas da abertura de uma janela crônica de risco potencial.
             </p>
           </div>
