@@ -2,25 +2,28 @@ import React from 'react';
 import { TimelineStage } from '../components/ui';
 import { timelineData } from '../data';
 import { Reveal, Citation } from '../components/ui';
+import { GraphCard } from '../components/GraphCard';
 
 export default function SlideCampo({ step }: { step: number }) {
+  const graphCount = Math.max(0, Math.min(5, step));
+
   return (
-    <div className="h-full flex flex-col justify-center min-h-0 relative pb-6">
-      <div className="flex-1 w-full flex items-center min-h-0">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-3 md:gap-4 h-full w-full">
-          {timelineData.map((stage: any, index: number) => {
-             const isOpenDefault = index === 2 || index === 3;
-             return (
-               <Reveal show={step >= index + 1} delay={0.1} key={stage.year} className="h-full">
-                 <div className="h-full pt-1 lg:pt-4 overflow-hidden">
-                   <TimelineStage item={stage} openDefault={isOpenDefault} />
-                 </div>
-               </Reveal>
-             )
-          })}
-        </div>
+    <div className="h-full flex flex-col gap-4 min-h-0 relative pb-6">
+      {/* Timeline: 5 cards em colunas */}
+      <div className="grid grid-cols-5 gap-3 flex-[2] min-h-0">
+        {timelineData.map((stage: any, index: number) => (
+          <Reveal show={step >= index + 1} delay={index * 0.1} key={stage.year} className="h-full min-h-0">
+            <TimelineStage item={stage} openDefault={false} />
+          </Reveal>
+        ))}
       </div>
-      <Citation text="(Douglas et al., 2015)" />
+
+      {/* GraphCard: ocupa a parte inferior */}
+      <Reveal show={step >= 2} className="flex-1 min-h-0">
+        <GraphCard count={graphCount} />
+      </Reveal>
+
+      <Citation text="(Douglas et al., 2015; Roberts et al., 2019)" />
     </div>
   );
 }

@@ -80,39 +80,28 @@ export function ExpandablePanel({ icon, title, text, bullets, badge }: any) {
 
 export function TimelineStage({ item, openDefault = false }: any) {
   const [open, setOpen] = useState(openDefault);
-  const panelClass = [
-    "relative rounded-[2rem] border p-5 shadow-md flex flex-col transition-all h-full",
-    item.boxClass || "bg-white",
-  ].join(" ");
 
   return (
-    <div className="relative h-full flex flex-col">
-      <motion.div layout className={panelClass}>
+    <div className="h-full flex flex-col rounded-[2rem] border border-white/60 shadow-md bg-white overflow-hidden">
+      {/* Header colorido com gradiente */}
+      <div className={`bg-gradient-to-r ${item.color} px-5 py-4 flex items-center justify-between flex-shrink-0`}>
+        <div>
+          <div className="text-xs uppercase tracking-[0.15em] text-white/80 font-bold mb-1">{item.year}</div>
+          <div className="font-extrabold text-white text-xl leading-tight">{item.label}</div>
+        </div>
         <button
           data-interactive="true"
-          onClick={(e) => {
-            e.stopPropagation();
-            setOpen((v: boolean) => !v);
-          }}
-          className="absolute top-4 right-4 rounded-full bg-white/90 p-2 border border-white/80 z-10 hover:bg-white shadow-sm transition-colors text-slate-700"
-          aria-label="Abrir legenda"
+          onClick={(e) => { e.stopPropagation(); setOpen((v: boolean) => !v); }}
+          className="rounded-full bg-white/25 hover:bg-white/50 p-2 border border-white/30 transition-colors text-white flex-shrink-0"
         >
-          {open ? <Minus className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
+          {open ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
         </button>
+      </div>
 
-        <div className="pr-12">
-          <div className="text-sm uppercase tracking-[0.15em] text-slate-700 font-bold mb-2">
-            {item.year}
-          </div>
-          <div className="flex items-center gap-2 mb-3 flex-wrap">
-            <div className="font-extrabold text-slate-900 border-b border-slate-300 pb-0.5">{item.label}</div>
-            <div className={style.chip}>{item.short}</div>
-          </div>
-
-          <div className="text-lg font-bold text-slate-800 leading-relaxed">
-            {item.headline}
-          </div>
-        </div>
+      {/* Corpo */}
+      <div className="p-4 flex-1 flex flex-col overflow-hidden">
+        <div className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 bg-slate-100 self-start px-3 py-1 rounded-full">{item.short}</div>
+        <div className="text-sm font-semibold text-slate-700 leading-relaxed flex-1">{item.detail}</div>
 
         <AnimatePresence>
           {open ? (
@@ -120,28 +109,22 @@ export function TimelineStage({ item, openDefault = false }: any) {
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              className="overflow-hidden mt-4 pt-4 border-t border-slate-300/40"
+              className="overflow-hidden"
             >
-              <div className="text-sm uppercase tracking-wider text-slate-600 mb-2 font-bold">
-                Contexto
+              <div className="mt-3 pt-3 border-t border-slate-200 space-y-2">
+                {item.bullets && item.bullets.map((bullet: string, i: number) => (
+                  <div key={i} className="flex gap-2 items-start text-xs text-slate-600 font-medium">
+                    <span className="text-slate-400 font-bold flex-shrink-0">•</span>
+                    <span>{bullet}</span>
+                  </div>
+                ))}
               </div>
-              <div className="text-base text-slate-800 leading-relaxed font-medium">
-                {item.note}
-              </div>
-              {item.details && item.details.length > 0 ? (
-                <div className="mt-3 space-y-2 text-base text-slate-800 font-medium">
-                  {item.details.map((detail: string) => (
-                    <div key={detail} className="flex gap-2 items-start"><span className="text-slate-400 font-bold">•</span><span>{detail}</span></div>
-                  ))}
-                </div>
-              ) : null}
             </motion.div>
           ) : null}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </div>
   );
-}
 
 export function MetricCard({ color, big, title, text, delay = 0 }: any) {
   return (
