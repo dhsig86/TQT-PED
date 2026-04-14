@@ -211,18 +211,6 @@ export default function App() {
           exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           className={`${style.shell} p-5 md:p-8 flex flex-col shadow-2xl relative`}
-          onClick={(e) => {
-            const target = e.target as HTMLElement;
-            const tag = target?.tagName?.toLowerCase?.();
-            const interactive =
-              ["button", "svg", "path"].includes(tag) ||
-              target?.closest?.("button") ||
-              target?.closest?.('[data-interactive="true"]');
-
-            if (!interactive) {
-              setStep((s) => Math.min(slide.maxStep, s + 1));
-            }
-          }}
         >
           {slide.id === "title" ? <SlideTitle step={step} /> : null}
           {slide.id === "importancia" ? <SlideImpact step={step} /> : null}
@@ -240,6 +228,8 @@ export default function App() {
           {slide.id === "decanulacao" ? <SlideDecanulacao step={step} /> : null}
           {slide.id === "takehome" ? <SlideTakehome step={step} /> : null}
           {slide.id === "referencias" ? <SlideReferencias step={step} /> : null}
+          
+          <div id="overlay-root" className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center rounded-[2rem] overflow-hidden" />
         </motion.div>
 
         <ProgressDots index={index} />
