@@ -125,6 +125,7 @@ export function TimelineStage({ item, openDefault = false }: any) {
       </div>
     </div>
   );
+}
 
 export function MetricCard({ color, big, title, text, delay = 0 }: any) {
   return (
