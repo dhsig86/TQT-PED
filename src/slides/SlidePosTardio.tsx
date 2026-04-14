@@ -1,57 +1,57 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Reveal, ExpandablePanel } from '../components/ui';
-import { Clock, Scissors, SearchAlert } from 'lucide-react';
+import { Reveal, Citation } from '../components/ui';
+import { Scissors } from 'lucide-react';
 
 export default function SlidePosTardio({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col md:flex-row gap-6 md:gap-8 items-center">
-      <div className="w-full md:w-1/2 space-y-6">
+    <div className="h-full flex flex-col md:flex-row gap-8 lg:gap-12 items-center justify-center relative pb-6 min-h-0">
+      <div className="w-full md:w-1/2 flex flex-col justify-center gap-8">
         <Reveal show={step >= 1}>
           <div className="space-y-4">
-            <h2 className="text-3xl font-bold text-slate-800 leading-tight">
-              A Morbidade Residual e Evolutiva
+            <h2 className="text-3xl lg:text-5xl font-bold text-slate-800 leading-tight">
+              A Morbidade Residual e Evolutiva do Atrito
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed">
-              Na prática real, a maior carga da doença sobre a instituição e a vida da família é o resquício anatômico que a traulação e a traqueia sofrem durante meses ou anos de atrito (40% de incidência total de complicações crônicas).
+            <p className="text-lg lg:text-xl text-slate-600 font-medium leading-relaxed">
+              O desdobramento crônico consome o orçamento da morbidade. Até 40% das crianças manifestam estigmas cirúrgicos permanentes pelo atrito prolongado da cânula rígida à mucosa frágil (traqueomalácia e tecido granuloso de resposta crônica).
             </p>
           </div>
         </Reveal>
 
         <Reveal show={step >= 2}>
-           <div className="bg-purple-50 border border-purple-200 rounded-3xl p-6 shadow-sm">
-             <h3 className="font-bold text-purple-900 mb-2">Principais vilões tardios:</h3>
-             <ul className="space-y-3 font-medium text-purple-800">
-               <li className="flex gap-2"><span>•</span> Granulação Estomal Reativa (necessidade intervencionista 19.6%)</li>
-               <li className="flex gap-2"><span>•</span> Fístula Traqueocutânea Permanente (Até 19% Pós-decanulação)</li>
-               <li className="flex gap-2"><span>•</span> Decanulação Acidental Domiciliar Crítica</li>
-               <li className="flex gap-2"><span>•</span> Infecção da ferida / Traqueite Pseudomonal (5.2%)</li>
+           <div className="bg-slate-50 border border-slate-200 rounded-[2rem] p-8 shadow-sm">
+             <h3 className="font-bold text-slate-800 text-xl mb-4">Eventos Evolutivos Primários na Pediatria:</h3>
+             <ul className="space-y-4 font-semibold text-slate-700 text-lg">
+               <li className="flex gap-3 items-start"><span className="text-slate-400 font-black">•</span> Reação Granulosa Supraestomal e da Ponta de Cânula (Até 19.6%)</li>
+               <li className="flex gap-3 items-start"><span className="text-slate-400 font-black">•</span> Fístula Traqueocutânea Permanente Pós-Decanulação (Até 42%)</li>
+               <li className="flex gap-3 items-start"><span className="text-slate-400 font-black">•</span> Oclusão do Lúmen por Rolhas Ressecadas</li>
+               <li className="flex gap-3 items-start"><span className="text-slate-400 font-black">•</span> Infecção Recorrente e Colonização Endêmica (Pseudomonas)</li>
              </ul>
            </div>
         </Reveal>
       </div>
 
-      <div className="w-full md:w-1/2 h-full flex items-center justify-center p-4">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-4 min-h-0">
         <Reveal show={step >= 3} delay={0.2} className="w-full max-w-sm relative">
            <motion.div 
              animate={{ rotate: [0, 360] }}
              transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-             className="absolute inset-0 rounded-full border-[1.5px] border-dashed border-purple-300 scale-[1.3]"
+             className="absolute inset-0 rounded-full border-[2px] border-dashed border-slate-300 scale-[1.3] z-0"
            />
-           <div className="aspect-square rounded-full bg-white shadow-xl border-4 border-white overflow-hidden flex items-center justify-center relative z-10 p-8">
-             <div className="text-center space-y-4">
-               <Scissors className="w-12 h-12 text-pink-400 mx-auto" />
-               <div className="text-2xl font-black text-slate-800">19.6%</div>
-               <div className="text-sm font-semibold text-slate-500 uppercase tracking-widest">
-                 Tecido de Granulação
+           <div className="aspect-square rounded-full bg-white shadow-2xl border-4 border-slate-100 flex flex-col items-center justify-center relative z-10 p-10">
+               <Scissors className="w-14 h-14 text-slate-700 mb-4" />
+               <div className="text-4xl lg:text-5xl font-black text-slate-800 mb-2 tracking-tighter">19.6%</div>
+               <div className="text-base font-bold text-slate-600 uppercase tracking-widest text-center mb-4">
+                 Tecido Granuloso Cronicizado
                </div>
-               <div className="text-xs text-slate-400">
-                 Fricção da cânula exige <br/>cauterização prateada, excisão <br/>ou uso de antibióticos off-label.
+               <div className="text-sm font-medium text-slate-500 text-center leading-relaxed">
+                 O atrito oscilatório requer nitratações químicas, exérese a pinça sob visualização broncoscópica e uso constante de coberturas antimicrobianas atípicas no estoma.
                </div>
-             </div>
            </div>
         </Reveal>
       </div>
+      
+      <Citation text="(Dal'Astra et al., 2017; Douglas et al., 2015)" />
     </div>
   );
 }

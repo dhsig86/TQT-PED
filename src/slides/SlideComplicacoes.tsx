@@ -1,36 +1,35 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { ShieldCheck } from 'lucide-react';
-import { Reveal, NodeItem } from '../components/ui';
+import { Reveal, NodeItem, Citation } from '../components/ui';
 import { GraphCard } from '../components/GraphCard';
-import { style } from '../data';
 
 export default function SlideComplicacoes({ step }: { step: number }) {
-  const count = useMemo(() => Math.max(0, Math.min(5, step - 1)), [step]);
+  const count = Math.max(0, Math.min(5, step - 1));
 
   return (
-    <div className="h-full flex flex-col gap-4 md:gap-6 min-h-0">
+    <div className="h-full flex flex-col justify-center gap-4 lg:gap-8 min-h-0 relative pb-6">
       <Reveal show={step >= 1}>
-        <div className={`${style.card} p-5 md:p-6 shadow-md`}>
+        <div className="rounded-[1.75rem] border border-slate-200 bg-white shadow-sm p-6 lg:p-8">
           <div className="flex items-center gap-3 mb-6">
-            <ShieldCheck className="w-6 h-6 md:w-8 md:h-8 text-emerald-600" />
-            <div className="text-xl md:text-2xl font-bold text-slate-800 tracking-tight">
-              A linha do tempo do risco e da complicação
+            <ShieldCheck className="w-8 h-8 text-emerald-600" />
+            <div className="text-2xl font-bold text-slate-800 tracking-tight">
+              A Cronologia da Complicação Estrutural
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 items-stretch">
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6 items-stretch">
             <NodeItem
               color="bg-slate-700"
               title="Intraoperatório"
-              text="Técnica base"
-              note="Complicações são baseadas em erro técnico primário: sangramento incontrolável, dissecção fora de eixo, falsa via primária e mau posicionamento detectável."
+              text="Falha Técnica"
+              note="Complicações derivadas do sítio primário cirúrgico: falso trajeto mediastinal anatômico ou hemorragia de parede."
               delay={0}
             />
             <Reveal show={step >= 2}>
               <NodeItem
                 color="bg-amber-500"
                 title="Pós-Precoce"
-                text="A Zona Crítica (Dia 0 a 7)"
-                note="Cânula instável. A preocupação é a perda acidental da via recém puncionada, rolha inicial por falta de umidade, fenda não selada e hemorragias da base estomal."
+                text="A Zona Crítica (Dias 0–7)"
+                note="Obstrução primária por secreção crua ou rolha inicial, somado ao risco asfixiante de decanulação não maturada."
                 delay={0}
               />
             </Reveal>
@@ -38,26 +37,26 @@ export default function SlideComplicacoes({ step }: { step: number }) {
               <NodeItem
                 color="bg-rose-500"
                 title="Pós-Tardio"
-                text="O Repetitivo"
-                note="Carga que se assoma: Crescimento de tecido (Granuloma), traqueite de acúmulo, estenose de atrito ou tubo descalibrado crônico."
+                text="O Evento Repetitivo"
+                note="Carga que se acumula no longo prazo: Granuloma estomal, traqueíte persistente e estenose supraestomal cicatricial."
                 delay={0}
               />
             </Reveal>
             <Reveal show={step >= 4}>
               <NodeItem
                 color="bg-violet-600"
-                title="Casa / Domicílio"
+                title="Domicílio"
                 text="O Resgate em Cheque"
-                note="Obstrução (rolha mucosa) e Decanulação acidental saem do CTI e ocorrem no playground. Resgate pela família torna-se falível e gera asfixia."
+                note="Obstruções e decanulações acidentais que falham fora da UTI por incapacidade letal de resgate pelo familiar."
                 delay={0}
               />
             </Reveal>
             <Reveal show={step >= 5}>
               <NodeItem
                 color="bg-emerald-600"
-                title="Segurança Ativa"
-                text="Maturação & Bundle"
-                note="Ao olhar linearmente, a defesa nasce no bloco cirúrgico (suturas de reparo / maturação à pele do TQT) e na educação maciça domiciliar do bundle de resgate."
+                title="Segurança"
+                text="Controle e Bundle"
+                note="Protocolos rigorosos instalados no centro cirúrgico que modulam o risco para reduzir a letalidade extra-hospitalar."
                 delay={0}
               />
             </Reveal>
@@ -65,35 +64,37 @@ export default function SlideComplicacoes({ step }: { step: number }) {
         </div>
       </Reveal>
 
-      <div className="grid lg:grid-cols-[1.15fr_0.95fr] gap-4 md:gap-6 items-start min-h-0 flex-1">
+      <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 items-start min-h-0 flex-1">
         <Reveal show={step >= 2}>
-          <div className={`${style.card} p-5 md:p-6 h-full border-indigo-100 bg-indigo-50/20`}>
-            <div className="font-bold text-slate-800 mb-4 text-lg md:text-xl">
-              Implicações Terapêuticas da Timeline
+          <div className="rounded-[1.75rem] border border-indigo-200 bg-indigo-50/50 p-6 lg:p-8 h-full">
+            <div className="font-bold text-slate-800 mb-4 text-xl">
+              Implicações Terapêuticas da Cronologia
             </div>
-            <div className="space-y-4 md:space-y-5 text-base text-slate-700 leading-relaxed font-medium">
-              <div className="flex gap-2">
-                <span className="text-indigo-500">•</span>
-                <span>Abandonar o conceito dicotômico que divide complicações apenas em "deu certo na cirurgia ou não deu". A cronologia avisa onde o óbito pode morar.</span>
+            <div className="space-y-5 text-slate-700 leading-relaxed font-medium">
+              <div className="flex gap-3">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>O abandono do conceito dicotômico que insula a complicação apenas no procedimento físico da mesa cirúrgica.</span>
               </div>
-              <div className="flex gap-2">
-                <span className="text-indigo-500">•</span>
-                <span>O avanço e a precisão da anestesia e da terapia intensiva derrubaram exponencialmente o pneumotórax. Mas aumentou o paciente com fistula persistente crônica e granuloma (Dal'Astra).</span>
+              <div className="flex gap-3">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>Avanços em anestesia derrubaram complicações como o pneumotórax intrínseco, mas maximizaram as taxas de granuloma pela sobrevida dos prematuros.</span>
               </div>
-              <div className="flex gap-2">
-                <span className="text-indigo-500">•</span>
-                <span><strong>Lógica preventiva:</strong> O evento catastrófico se desenha muito antes (ex: má adaptação do ângulo da cânula), demorando semanas para engilhar a parede e originar uma fístula arterio-inominada.</span>
+              <div className="flex gap-3">
+                <span className="text-indigo-500 font-bold">•</span>
+                <span>O evento traumático ou letal se desenha silenciosamente muito antes da data do óbito, como por exemplo os erros de eixo da cânula.</span>
               </div>
             </div>
           </div>
         </Reveal>
 
         <Reveal show={step >= 3}>
-          <div className="h-full">
+          <div className="h-full min-h-0">
             <GraphCard count={count} />
           </div>
         </Reveal>
       </div>
+
+      <Citation text="(Dal'Astra et al.)" />
     </div>
   );
 }

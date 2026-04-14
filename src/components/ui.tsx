@@ -7,6 +7,14 @@ export function formatPercent(value: number) {
   return `${value}%`;
 }
 
+export function Citation({ text }: { text: string }) {
+  return (
+    <div className="absolute bottom-2 lg:bottom-4 right-4 lg:right-6 text-xs text-slate-400/80 font-medium tracking-wide">
+      {text}
+    </div>
+  );
+}
+
 export function Reveal({ show, children, delay = 0, className = "" }: { show: boolean, children: React.ReactNode, delay?: number, className?: string }) {
   return (
     <AnimatePresence>
@@ -16,7 +24,7 @@ export function Reveal({ show, children, delay = 0, className = "" }: { show: bo
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 18 }}
-          transition={{ duration: 0.28, delay }}
+          transition={{ duration: 0.35, delay }}
         >
           {children}
         </motion.div>

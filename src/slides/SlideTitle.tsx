@@ -1,58 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Stethoscope } from 'lucide-react';
 
 export default function SlideTitle({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col items-center justify-center text-center gap-6 md:gap-10">
+    <div className="h-full flex flex-col justify-center items-center text-center pb-20">
       <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
+        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="w-24 h-24 md:w-32 md:h-32 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-inner mb-4"
       >
-        <Stethoscope className="w-12 h-12 md:w-16 md:h-16" />
-      </motion.div>
-
-      <motion.div
-        initial={{ y: 20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="space-y-4"
-      >
-        <h1 className="text-4xl md:text-5xl lg:text-[5rem] font-black text-slate-800 tracking-tight">
+        <div className="w-24 h-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-8 shadow-sm">
+          <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+          </svg>
+        </div>
+        
+        <h1 className="text-5xl lg:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-800 to-slate-600 tracking-tight leading-tight mb-6">
           Traqueostomia Pediátrica
         </h1>
-        <p className="text-xl md:text-2xl text-slate-500 font-light max-w-3xl mx-auto leading-relaxed">
-          Histórico, epidemiologia contemporânea e impacto longitudinal baseados em evidências
-        </p>
-      </motion.div>
+        
+        <div className="text-xl lg:text-2xl text-slate-500 font-medium tracking-wide mb-12">
+          Análise de Risco, Complicações e Cuidado Longitudinal
+        </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="mt-8 md:mt-12 bg-white/60 backdrop-blur border border-slate-200 px-8 py-6 rounded-3xl shadow-sm"
-      >
-        <div className="font-semibold text-slate-800 text-lg md:text-xl">
-          Dra. Larissa Salomão
-        </div>
-        <div className="text-slate-500 font-medium text-sm md:text-base mt-1 tracking-wide">
-          Otorrinolaringologista - HFB / UFRJ / IPPMG
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1 }}
-        className="absolute bottom-8 right-8 flex gap-3"
-      >
-        <div className="w-20 h-16 rounded-xl bg-slate-200/50 border border-slate-300/50 flex flex-col items-center justify-center text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-          Foto
-        </div>
-        <div className="w-20 h-16 rounded-xl bg-slate-200/50 border border-slate-300/50 flex flex-col items-center justify-center text-[10px] text-slate-400 font-medium uppercase tracking-widest">
-          Foto
+        <div className="flex flex-col items-center gap-4 text-slate-600 font-semibold text-lg bg-slate-50 rounded-3xl p-6 border border-slate-200 shadow-sm max-w-lg mx-auto">
+          <span>Dra. Larissa Salomão</span>
+          <span className="text-slate-400 text-sm font-bold uppercase tracking-widest">
+            Otorrinolaringologista – HFB / UFRJ / IPPMG
+          </span>
         </div>
       </motion.div>
     </div>
