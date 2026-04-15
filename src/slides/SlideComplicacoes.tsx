@@ -56,7 +56,7 @@ export default function SlideComplicacoes({ step }: { step: number }) {
                 color="bg-emerald-600"
                 title="Segurança"
                 text="Controle e Bundle"
-                note="Protocolos rigorosos instalados no centro cirúrgico que modulam o risco para reduzir a letalidade extra-hospitalar."
+                note="Protocolos baseados em evidências (Pacheco, 2021): dissecção em linha média, primeira troca controlada com 10–14 dias, cânula sobressalente no leito e treinamento de resgate domiciliar sistematizado."
                 delay={0}
               />
             </Reveal>
@@ -94,7 +94,7 @@ export default function SlideComplicacoes({ step }: { step: number }) {
         </Reveal>
       </div>
 
-      <Citation text="(Dal'Astra et al.)" />
+      <Citation text="(Dal'Astra et al., 2017 · PMID 27256033; Pacheco et al., 2021 · PMID 34172211)" />
     </div>
   );
 }
