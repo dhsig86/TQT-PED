@@ -1,15 +1,24 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Reveal, NodeItem, Citation } from '../components/ui';
 import { ComplicationsChart } from '../components/ComplicationsChart';
 
 export default function SlideComplicacoes({ step }: { step: number }) {
+  const expanded = step >= 5;
   const count = Math.max(0, Math.min(5, step - 1));
 
   return (
-    <div className="h-full flex flex-col justify-start xl:justify-center gap-4 lg:gap-6 min-h-0 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
+    <div className="h-full flex flex-col justify-start xl:justify-center gap-4 lg:gap-6 min-h-0 relative pb-4 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
       <Reveal show={step >= 1} className="shrink-0">
-        <div className="rounded-[1.75rem] border border-slate-200 bg-white shadow-sm p-6 lg:p-8">
+        <motion.div 
+          animate={{ 
+            height: expanded ? '9.5rem' : 'auto', 
+            opacity: expanded ? 0.6 : 1 
+          }}
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          className="rounded-[1.75rem] border border-slate-200 bg-white shadow-sm p-6 lg:p-8 overflow-hidden"
+        >
           <div className="flex items-center gap-3 mb-6">
             <ShieldCheck className="w-8 h-8 text-emerald-600" />
             <div className="text-2xl font-bold text-slate-800 tracking-tight">
@@ -61,7 +70,7 @@ export default function SlideComplicacoes({ step }: { step: number }) {
               />
             </Reveal>
           </div>
-        </div>
+        </motion.div>
       </Reveal>
 
       <div className="grid lg:grid-cols-2 gap-4 lg:gap-6 items-start min-h-0 flex-1">
@@ -86,8 +95,8 @@ export default function SlideComplicacoes({ step }: { step: number }) {
             </div>
           </div>
         </Reveal>
-        <Reveal show={step >= 1} className="h-full min-h-0">
-          <ComplicationsChart step={step} />
+        <Reveal show={step >= 3} className="h-full min-h-0 flex-1">
+          <ComplicationsChart step={step} expanded={expanded} />
         </Reveal>
       </div>
 

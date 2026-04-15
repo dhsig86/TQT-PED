@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { complicationsCuratedData } from '../data';
 
-export function ComplicationsChart({ step }: { step: number }) {
+export function ComplicationsChart({ step, expanded }: { step: number; expanded?: boolean }) {
   const maxRate = 50; // Reference max visual scale
 
   return (
