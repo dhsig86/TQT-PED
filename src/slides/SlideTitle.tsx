@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 
 export default function SlideTitle({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col justify-center items-center text-center pb-20">
+    <div className="h-full flex flex-col justify-center items-center text-center pb-8 min-h-0">
+
       <motion.div
         initial={{ opacity: 0, scale: 0.9, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}

@@ -30,9 +30,9 @@ export default function SlidePaciente({ step }: { step: number }) {
           />
           <MetricCard
             color="bg-amber-600"
-            big="Eletiva"
-            title="Resgate Controlado"
-            text="Procedimentos migraram do espectro emergencial para a transição de UTI."
+            big="79%"
+            title="Abaixo de 1 Ano"
+            text="Em série de referência terciária, 79% dos traqueostomizados pediátricos tinham menos de 1 ano de idade. (Douglas, 2015)"
             delay={0.4}
           />
         </div>
@@ -63,9 +63,9 @@ export default function SlidePaciente({ step }: { step: number }) {
               badge="Cronicidade"
               text="O foco torna-se a proteção neural de longo prazo e desmame gradual do suporte avançado."
               bullets={[
-                "Maturação e viabilização de tratamentos estadiados.",
+                "Ventilação prolongada e displasia broncopulmonar como principal indicação (Douglas 2015: 20% VM, 18% craniofacial, 14% SGS).",
                 "Mismatch da cânula versus a anatomia em crescimento contínuo.",
-                "Intensa manipulação por cuidadores em home care."
+                "Intensa manipulação por cuidadores domíciliares: aprendizado obrigatório."
               ]}
             />
           </div>
@@ -88,7 +88,7 @@ export default function SlidePaciente({ step }: { step: number }) {
         </Reveal>
       </div>
       
-      <Citation text="(Douglas et al., 2015; Roberts et al., 2019)" />
+      <Citation text="(Douglas et al., 2015 · PMID 26255606; Roberts et al., 2019 · PMID 31251410)" />
     </div>
   );
 }

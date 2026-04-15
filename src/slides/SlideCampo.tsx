@@ -24,6 +24,8 @@ export default function SlideCampo({ step }: { step: number }) {
           <GraphCard count={graphCount} />
         </div>
       </Reveal>
+
+      <Citation text="(Douglas et al., 2015 · PMID 26255606; Roberts et al., 2019 · PMID 31251410)" />
     </div>
   );
 }

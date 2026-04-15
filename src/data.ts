@@ -44,7 +44,7 @@ export const slidesConfig = [
     bg: "from-cyan-50 to-emerald-50",
     title: "O Paciente Contemporâneo: Complexo e Cronicamente Ventilado",
     subtitle: "Mais Jovem, Mais Ventilado, Mais Complexo e Menos Parecido Com o Passado",
-    maxStep: 5,
+    maxStep: 4,
   },
   {
     id: "complicacoes",

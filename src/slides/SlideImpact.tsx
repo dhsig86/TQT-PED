@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Plus } from 'lucide-react';
 import { Citation, Reveal, ModalOverlay } from '../components/ui';
 
 function StatCard({ number, title, text, color, delay, onClick }: any) {
@@ -18,8 +19,8 @@ function StatCard({ number, title, text, color, delay, onClick }: any) {
       <div className="text-sm md:text-base font-bold text-slate-700 leading-snug uppercase tracking-wide">
         {title}
       </div>
-      <div className="mt-2 bg-slate-100 text-[10px] uppercase font-bold tracking-widest text-slate-500 px-4 py-1 rounded-full">
-        Detalhes
+      <div className="mt-2 rounded-full bg-slate-100 p-2 text-slate-500 group-hover:bg-slate-800 group-hover:text-white transition-colors shadow-sm">
+        <Plus className="w-4 h-4 flex-shrink-0" />
       </div>
     </motion.div>
   );
@@ -29,9 +30,24 @@ export default function SlideImpact({ step }: { step: number }) {
   const [activeStat, setActiveStat] = useState<number | null>(null);
 
   const stats = [
-    { number: "40", title: "Morbidade Crônica", text: "Taxa de complicações estruturais contínuas e persistentes ao longo da manutenção do estoma a longo prazo.", color: "border-amber-200" },
-    { number: "9.8", title: "Morbidade Precoce", text: "Complicações vitais severas concentradas nas primeiras 48 a 72 horas pós-procedimento imediato (falsos trajetos, sangramentos críticos).", color: "border-rose-200" },
-    { number: "40", title: "Falha Extubação", text: "Eventos pediátricos graves que culminam em falha de tentativa de decanulação terminal, retendo a necessidade do dispositivo de traqueostomia.", color: "border-purple-200" }
+    {
+      number: "40", title: "Morbidade Tardia",
+      text: "40% das crianÃ§as traqueostomizadas desenvolvem ao menos uma complicaÃ§Ã£o estrutural tardia (granuloma, fÃ­stula, estenose, colonizaÃ§Ã£o) ao longo da manutenÃ§Ã£o do estoma. Dado de coorte de 153 pacientes pediÃ¡tricos.",
+      source: "Roberts et al., 2019. Laryngoscope 130(5):E375â€“E380. PMID 31251410.",
+      color: "border-amber-200"
+    },
+    {
+      number: "9.8", title: "Morbidade Precoce",
+      text: "9.8% dos pacientes apresentaram complicaÃ§Ãµes precoces graves nas primeiras horas a dias pÃ³s-traqueostomia: deslocamento, sangramento, obstruÃ§Ã£o e pneumotÃ³rax. ProporÃ§Ã£o idÃªntica reportada por Roberts et al.",
+      source: "Roberts et al., 2019. Laryngoscope 130(5):E375â€“E380. PMID 31251410.",
+      color: "border-rose-200"
+    },
+    {
+      number: "1.2", title: "Mortalidade Relacionada",
+      text: "A mortalidade diretamente atribuÃ­vel Ã  traqueostomia pediÃ¡trica Ã© de 1.2% no cenÃ¡rio de centro experiente. A mortalidade por todas as causas no perÃ­odo de seguimento atinge 22.1%, refletindo a gravidade das doenÃ§as de base.",
+      source: "Roberts et al., 2019. Laryngoscope 130(5):E375â€“E380. PMID 31251410.",
+      color: "border-purple-200"
+    }
   ];
 
   return (
@@ -40,10 +56,10 @@ export default function SlideImpact({ step }: { step: number }) {
         <Reveal show={step >= 1}>
           <div className="text-center max-w-5xl mx-auto space-y-4 shrink-0">
             <h2 className="text-[clamp(1.5rem,3vw,2.25rem)] font-bold text-slate-800 leading-tight drop-shadow-sm">
-              A Traqueostomia Salva Vidas, Mas a Carga de Morbidade Restante é Intensa.
+              A Traqueostomia Salva Vidas, Mas a Carga de Morbidade Restante Ã© Intensa.
             </h2>
             <p className="text-[clamp(1rem,1.5vw,1.25rem)] text-slate-600 font-medium">
-              Não representa apenas a resolução de um choque intraoperatório agudo, mas a inauguração de uma janela crônica e complexa.
+              NÃ£o representa apenas a resoluÃ§Ã£o de um choque intraoperatÃ³rio agudo, mas a inauguraÃ§Ã£o de uma janela crÃ´nica e complexa.
             </p>
           </div>
         </Reveal>
@@ -65,8 +81,9 @@ export default function SlideImpact({ step }: { step: number }) {
 
         <Reveal show={step >= 3} delay={0.4}>
           <div className="mt-0 flex justify-center pb-8 shrink-0">
-             <div className="bg-slate-800/90 backdrop-blur-md text-slate-50 rounded-2xl px-6 py-4 font-semibold text-sm lg:text-base shadow-xl text-center max-w-2xl border border-slate-700">
-               A Mortalidade primária e intrínseca à traqueostomia na pediatria flutua entre 1.2% até 6.0%.
+             <div className="bg-slate-800/90 backdrop-blur-md text-slate-50 rounded-2xl px-6 py-4 font-semibold text-sm lg:text-base shadow-xl text-center max-w-2xl border border-slate-700 space-y-1">
+               <div>A mortalidade <strong className="text-white">diretamente relacionada</strong> Ã  traqueostomia na pediatria Ã© de <strong className="text-amber-300">1.2%</strong> em centros experientes;</div>
+               <div className="text-slate-400 text-xs font-bold uppercase tracking-widest">a mortalidade por todas as causas no seguimento alcanÃ§a atÃ© <span className="text-rose-300">22%</span> â€” reflexo da morbidade de base.</div>
              </div>
           </div>
         </Reveal>
@@ -86,17 +103,22 @@ export default function SlideImpact({ step }: { step: number }) {
                         {stats[activeStat].title}
                      </div>
                   </div>
-                  <div className="flex flex-col text-center md:text-left flex-1 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8 lg:pl-12 justify-center min-h-[140px]">
-                     <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed">
-                        {stats[activeStat].text}
-                     </p>
-                  </div>
+                  <div className="flex flex-col text-center md:text-left flex-1 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8 lg:pl-12 justify-center min-h-[140px] gap-6">
+                      <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed">
+                         {stats[activeStat].text}
+                      </p>
+                      <div className="text-xs text-slate-400 font-medium border-t border-slate-100 pt-4 tracking-wide">
+                        <span className="font-bold text-slate-500 uppercase tracking-widest text-[10px] block mb-1">Referência</span>
+                        {stats[activeStat].source}
+                      </div>
+                   </div>
                </div>
             </div>
          )}
       </ModalOverlay>
 
-      <Citation text="(Roberts et al., 2019; Lubianca Neto et al., 2020)" />
+      <Citation text="(Roberts et al., 2019 Â· PMID 31251410; Lubianca Neto et al., 2020 Â· PMID 33472759)" />
     </div>
   );
 }
+
