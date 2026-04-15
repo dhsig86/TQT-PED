@@ -10,7 +10,10 @@ export function formatPercent(value: number) {
 
 export function Citation({ text }: { text: string }) {
   return (
-    <div className="absolute bottom-2 lg:bottom-4 right-4 lg:right-6 text-xs text-slate-400/80 font-medium tracking-wide">
+    <div
+      className="absolute right-0.5 top-1/2 -translate-y-1/2 text-[9px] text-slate-400/70 font-medium tracking-wide leading-none pointer-events-none select-none"
+      style={{ writingMode: "vertical-rl", transform: "translateY(-50%) rotate(180deg)" }}
+    >
       {text}
     </div>
   );
@@ -161,7 +164,7 @@ export function TimelineStage({ item }: any) {
 
       {/* Corpo compacto */}
       <div className="p-3 lg:p-4 flex-1 flex flex-col overflow-hidden items-center justify-center text-center bg-white/50 backdrop-blur-md">
-        <div className="text-[10px] lg:text-xs font-bold text-slate-500 uppercase tracking-widest bg-white border border-slate-200 shadow-sm px-3 py-1 rounded-full drop-shadow-sm line-clamp-1">{item.short}</div>
+        <div className="text-[9px] lg:text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-white border border-slate-200 shadow-sm px-2 py-1 rounded-full drop-shadow-sm line-clamp-2 text-center leading-tight">{item.short}</div>
       </div>
     </motion.div>
 

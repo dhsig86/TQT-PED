@@ -4,7 +4,7 @@ import { ExpandablePanel, MetricCard, Reveal, Citation } from '../components/ui'
 
 export default function SlidePaciente({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col justify-start xl:justify-center gap-4 lg:gap-6 min-h-0 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
+    <div className="h-full flex flex-col gap-3 lg:gap-4 min-h-0 relative overflow-y-auto pt-2 pl-2 pr-5 -mr-5 no-scrollbar">
       <Reveal show={step >= 1} className="shrink-0">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
           <MetricCard
