@@ -38,8 +38,8 @@ export default function SlideImpact({ step }: { step: number }) {
     },
     {
       number: "9.8", title: "Morbidade Precoce",
-      text: "9.8% dos pacientes apresentaram complicações precoces graves nas primeiras horas a dias pós-traqueostomia: deslocamento, sangramento, obstrução e pneumotórax. Proporção idêntica reportada por Roberts et al.",
-      source: "Roberts et al., 2019. Laryngoscope 130(5):E375–E380. PMID 31251410.",
+      text: "Roberts et al. (2019) identificaram taxa de complicações precoces de 9,8% em coorte de 172 traqueostomizados pediátricos. Os eventos predominantes foram deslocamento acidental da cânula, sangramento e obstrução por secreção nas primeiras horas a dias do pós-operatório — mecanismos previsíveis e em grande parte preveníveis com vigilância ativa na UTI.",
+      source: "Roberts et al., 2019. The Laryngoscope 129(10). PMID 31251410.",
       color: "border-rose-200"
     },
     {

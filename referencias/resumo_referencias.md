@@ -34,5 +34,7 @@ Abaixo está a síntese de cada uma das 11 referências contidas na pasta `refer
 ### 10. Tracheostomy in children: Recommendations for a safer technique (Pacheco, 2021)
 * *Resumo:* Foca exclusivamente na confecção cirúrgica e na montagem de protocolos rigorosos de prevenção (O *Safety Bundle*). Argumenta o arsenal cirúrgico para evitar falhas: dissecção meticulosa com eletrocautério na linha média, "stay sutures" laterais de contenção, saturação das bordas da traqueia à pele (Maturação do estoma), e broncoscopia associada. Argumenta contra traqueostomia percutânea (não testada ideal em bebês). Consolida que a vigilância para "quando tirar o tubo" (decanular) deve ser balizada por polisomnografia, fonoaudiologia e endoscopia seriada de repouso.
 
+
+
 ### 11. Tracheostomy in children: a ten-year experience from a tertiary center in southern Brazil (Schweiger et al., 2017)
 * *Resumo:* Revisão robusta do Hospital de Clínicas de Porto Alegre (123 crianças). A principal indicação revelada foi atípica em relação a outras séries internacionais: glossoptose maciça (30%), seguida de estenose (16%). A mortalidade geral foi alta (31%), espelhando a complexidade de subjacência dos sindrômicos do SUS, contudo com decanulação de longo prazo atingindo perto de 28,4%. A conclusão principal atrela diretamente o número fixo de comorbidades prévias de desordens neurológicas do doente com um pior desfecho longitudinal.

@@ -16,24 +16,24 @@ export default function SlideDecanulacao({ step }: { step: number }) {
   return (
     <div className="h-full flex flex-col justify-start xl:justify-center relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar min-h-0">
        <Reveal show={step >= 1} className="shrink-0">
-         <div className="text-center mb-10 max-w-5xl mx-auto">
-           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
+         <div className="text-center mb-4 lg:mb-6 max-w-5xl mx-auto">
+           <h2 className="text-2xl lg:text-4xl font-bold text-slate-800 leading-tight">
              Limiares Críticos da Decanulação Pediátrica
            </h2>
-           <p className="text-lg lg:text-xl text-slate-600 mt-4 font-medium">As taxas consistentes de sucesso flutuam desde limiares irrisórios menores que 10% aos 44%, estritamente limitadas ao diagnóstico etiológico primário.</p>
+           <p className="text-base lg:text-xl text-slate-600 mt-2 lg:mt-4 font-medium">As taxas consistentes de sucesso flutuam desde limiares irrisórios menores que 10% aos 44%, estritamente limitadas ao diagnóstico etiológico primário.</p>
          </div>
        </Reveal>
 
-       <div className="flex flex-col md:flex-row justify-center items-center lg:gap-4 mt-8 max-w-6xl mx-auto w-full flex-1 min-h-0 shrink-0">
+       <div className="flex flex-col md:flex-row justify-center items-center gap-2 lg:gap-3 mt-2 lg:mt-4 max-w-6xl mx-auto w-full shrink-0">
          {steps.map((s, i) => (
            <React.Fragment key={i}>
              <Reveal show={step >= i + 2}>
                <div 
-                 className={`flex flex-col items-center justify-center p-6 border rounded-[2rem] w-48 h-48 lg:w-56 lg:h-56 ${s.color} z-10 relative bg-white group`}
+                 className={`flex flex-col items-center justify-center p-4 border rounded-[2rem] w-36 h-36 lg:w-44 lg:h-44 ${s.color} z-10 relative bg-white group`}
                  onClick={i === steps.length - 1 ? () => setOpen(true) : undefined}
                >
-                 <div className="w-12 h-12 mb-4 opacity-80 group-hover:scale-110 transition-transform">{s.icon}</div>
-                 <div className="font-bold text-center text-sm lg:text-base leading-snug uppercase tracking-wide px-2">{s.title}</div>
+                 <div className="w-10 h-10 mb-2 opacity-80 group-hover:scale-110 transition-transform">{s.icon}</div>
+                 <div className="font-bold text-center text-xs lg:text-sm leading-snug uppercase tracking-wide px-1">{s.title}</div>
                  {i === steps.length - 1 && (
                      <div className="mt-4 rounded-full bg-violet-100 p-2 text-violet-500 group-hover:bg-violet-600 group-hover:text-white transition-colors shadow-sm">
                         <Plus className="w-5 h-5 flex-shrink-0" />
@@ -68,7 +68,7 @@ export default function SlideDecanulacao({ step }: { step: number }) {
          </div>
        </ModalOverlay>
        
-       <Citation text="(Dal'Astra et al., 2017; Douglas et al., 2015; Roberts et al., 2019)" />
+       <Citation text="(Dal'Astra et al., 2017 · PMID 27256033; Douglas et al., 2015 · PMID 26255606; Roberts et al., 2019 · PMID 31251410)" />
     </div>
   );
 }

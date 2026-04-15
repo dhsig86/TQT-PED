@@ -36,31 +36,31 @@ export default function SlideQuatroChaves({ step }: { step: number }) {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
   return (
-    <div className="h-full flex flex-col justify-center p-2 relative pb-6 min-h-0">
+    <div className="h-full flex flex-col justify-start xl:justify-center relative pb-6 min-h-0 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
       <Reveal show={step >= 1}>
-        <div className="text-center max-w-5xl mx-auto mb-10">
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
+        <div className="text-center max-w-5xl mx-auto mb-4 shrink-0">
+          <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 leading-tight">
             Fatores Etiológicos das Complicações Locais
           </h2>
-          <p className="text-slate-500 mt-4 font-semibold text-lg lg:text-xl">
+          <p className="text-slate-500 mt-2 font-semibold text-base lg:text-lg">
             O eixo fisiopatológico restringe-se primariamente a quatro entidades macro fundamentais:
           </p>
         </div>
       </Reveal>
 
-      <div className="grid grid-cols-2 gap-4 lg:gap-8 w-full max-w-5xl mx-auto flex-1 min-h-0 px-4">
+      <div className="grid grid-cols-2 gap-3 lg:gap-5 w-full max-w-5xl mx-auto shrink-0 px-2">
         {cards.map((c, i) => (
-          <Reveal show={step >= i + 2} key={c.title} className="h-full">
+          <Reveal show={step >= i + 2} key={c.title}>
             <div
-              className={`p-6 md:p-8 rounded-[2rem] border shadow-sm flex flex-col items-center justify-center text-center h-full cursor-pointer transition-colors ${c.color}`}
+              className={`p-5 md:p-6 rounded-[2rem] border shadow-sm flex flex-col items-center justify-center text-center cursor-pointer transition-colors ${c.color}`}
               onClick={() => setActiveCard(i)}
             >
-              <div className={`w-12 h-12 rounded-full flex items-center justify-center font-black text-2xl mb-4 ${i === 2 ? 'bg-white/20' : 'bg-slate-200/60'}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-xl mb-3 ${i === 2 ? 'bg-white/20' : 'bg-slate-200/60'}`}>
                 {i + 1}
               </div>
-              <h3 className={`text-xl lg:text-3xl font-black tracking-tight ${c.textColor}`}>{c.title}</h3>
-              <div className={`mt-6 rounded-full p-2 flex items-center justify-center w-10 h-10 mx-auto ${i === 2 ? 'bg-white/20 text-white' : 'bg-slate-200/60 text-slate-600'}`}>
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <h3 className={`text-lg lg:text-2xl font-black tracking-tight ${c.textColor}`}>{c.title}</h3>
+              <div className={`mt-4 rounded-full p-2 flex items-center justify-center w-8 h-8 mx-auto ${i === 2 ? 'bg-white/20 text-white' : 'bg-slate-200/60 text-slate-600'}`}>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                 </svg>
               </div>
@@ -72,16 +72,16 @@ export default function SlideQuatroChaves({ step }: { step: number }) {
       <ModalOverlay open={activeCard !== null} setOpen={() => setActiveCard(null)}>
         {activeCard !== null && (
           <div className="flex flex-col h-full bg-white relative">
-            <div className="p-10 border-b border-slate-100 flex items-center gap-6">
-              <div className="w-20 h-20 bg-slate-800 text-white rounded-[2rem] flex items-center justify-center font-black text-4xl shadow-md">
+            <div className="p-8 border-b border-slate-100 flex items-center gap-5">
+              <div className="w-16 h-16 bg-slate-800 text-white rounded-[1.5rem] flex items-center justify-center font-black text-3xl shadow-md">
                 {activeCard + 1}
               </div>
-              <h2 className="text-3xl lg:text-4xl font-black text-slate-800 uppercase tracking-widest">
+              <h2 className="text-2xl lg:text-3xl font-black text-slate-800 uppercase tracking-widest">
                 {cards[activeCard].title}
               </h2>
             </div>
-            <div className="p-10 lg:p-14 bg-slate-50 flex-1 flex flex-col justify-center gap-6">
-              <p className="text-xl lg:text-2xl text-slate-700 leading-relaxed font-medium bg-white p-10 rounded-[2rem] shadow-sm border border-slate-200">
+            <div className="p-8 lg:p-12 bg-slate-50 flex-1 flex flex-col justify-center gap-5">
+              <p className="text-lg lg:text-xl text-slate-700 leading-relaxed font-medium bg-white p-8 rounded-[2rem] shadow-sm border border-slate-200">
                 {cards[activeCard].text}
               </p>
               <div className="text-xs text-slate-400 font-medium tracking-wide px-2">

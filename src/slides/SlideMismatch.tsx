@@ -51,11 +51,12 @@ export default function SlideMismatch({ step }: { step: number }) {
                <div className="text-sm font-bold opacity-80 uppercase tracking-widest">Base Cifoescoliótica Típica</div>
             </div>
             <div className="bg-white p-10 border-t md:border-t-0 md:border-l border-slate-100 lg:p-14 text-center md:text-left flex flex-col items-center justify-center flex-1">
-               <ul className="space-y-4 text-slate-700 font-medium text-base lg:text-lg leading-relaxed flex-1 w-full bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-100 mb-6">
+               <ul className="space-y-3 text-slate-700 font-medium text-sm lg:text-base leading-relaxed flex-1 w-full bg-slate-50 p-6 md:p-8 rounded-[2rem] border border-slate-100 mb-6">
                   <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">30,3%</strong> necessitaram visitar centros de pronto-atendimento por desalinhamentos primários da cânula à mucosa cervical.</span></li>
-                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">18,6%</strong> necessitaram reestruturação física do tubo em decorrência de distorção de parâmetros vitais ou perdas acidentais parciais.</span></li>
-                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">34,3%</strong> continham desvios estruturais intrínsecos documentados.</span></li>
-                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong>Somente 9.8% configuraram cenário viável de decanulação terminal</strong> nesta subpopulação.</span></li>
+                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">18,6%</strong> necessitaram reestruturação física do tubo por distorção de parâmetros vitais ou perdas acidentais parciais.</span></li>
+                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">17,7%</strong> relataram dificuldade nas trocas domiciliares — impacto direto da morfologia alterada no cuidado rotineiro de cuidador.</span></li>
+                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong className="text-slate-800">34,3%</strong> continham desvios estruturais intrínsecos documentados à broncoscopia.</span></li>
+                  <li className="flex gap-4 items-start"><span className="text-amber-500 font-black text-xl">•</span> <span><strong>Somente 9,8% configuraram cenário viável de decanulação terminal</strong> nesta subpopulação.</span></li>
                </ul>
                <div className="p-6 md:p-8 w-full border-l-4 border-amber-500 bg-amber-50 rounded-r-[2rem] rounded-bl-none shadow-sm">
                   <strong className="text-amber-800 uppercase tracking-widest text-xs mb-2 block">Conclusão Analítica:</strong>
@@ -65,7 +66,7 @@ export default function SlideMismatch({ step }: { step: number }) {
          </div>
        </ModalOverlay>
        
-       <Citation text="(Appachi et al., 2021)" />
+       <Citation text="(Appachi et al., 2021 — Laryngoscope Investig Otolaryngol)" />
     </div>
   );
 }

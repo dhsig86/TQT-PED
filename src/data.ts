@@ -65,7 +65,7 @@ export const slidesConfig = [
     bg: "from-rose-50 to-amber-50",
     title: "Vulnerabilidades do Pós-Operatório Precoce (D0-D7)",
     subtitle: "Os Primeiros Dias Concentram a Zona Crítica de Desestabilização Clínica",
-    maxStep: 4,
+    maxStep: 6,
   },
   {
     id: "pos-tardio",
@@ -79,7 +79,7 @@ export const slidesConfig = [
     bg: "from-emerald-50 to-cyan-50",
     title: "Principais Complicações Morfológicas",
     subtitle: "As Dimensões Críticas Que a Plateia Precisa Levar Para Casa",
-    maxStep: 4,
+    maxStep: 5,
   },
   {
     id: "catastroficas",
@@ -107,7 +107,7 @@ export const slidesConfig = [
     bg: "from-emerald-50 to-teal-50",
     title: "O Bundle de Segurança Baseado em Evidências",
     subtitle: "A Sistematização de Processos Que Previne a Complicação Antes Dela Existir",
-    maxStep: 6,
+    maxStep: 8,
   },
   {
     id: "decanulacao",

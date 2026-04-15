@@ -67,7 +67,7 @@ export default function SlideCatastroficas({ step }: { step: number }) {
          </div>
       </ModalOverlay>
       
-      <Citation text="(Cramer et al., 2018; Kligerman et al., 2020)" />
+      <Citation text="(Cramer et al., 2019; Kligerman et al., 2020)" />
     </div>
   );
 }

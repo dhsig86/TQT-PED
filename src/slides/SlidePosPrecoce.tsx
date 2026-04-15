@@ -14,7 +14,7 @@ export default function SlidePosPrecoce({ step }: { step: number }) {
   const [activeRisk, setActiveRisk] = useState<number | null>(null);
 
   return (
-    <div className="h-full flex flex-col justify-start xl:justify-center gap-6 lg:gap-8 min-h-0 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
+    <div className="h-full flex flex-col justify-start xl:justify-center gap-4 lg:gap-6 min-h-0 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
       <Reveal show={step >= 1} className="shrink-0">
         <div className="text-center max-w-5xl mx-auto space-y-4 mb-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800">A Instabilidade do Trajeto Recente (D0-D7)</h2>
@@ -43,7 +43,7 @@ export default function SlidePosPrecoce({ step }: { step: number }) {
         ))}
       </div>
 
-      <Reveal show={step >= 6} className="shrink-0">
+      <Reveal show={step >= 6}>
         <div className="p-6 lg:p-8 rounded-[2rem] bg-slate-800 text-slate-50 border border-slate-700 shadow-xl flex flex-col md:flex-row gap-6 items-center mx-auto max-w-6xl mt-4 shrink-0">
           <div className="w-16 h-16 shrink-0 rounded-full bg-slate-100 flex items-center justify-center text-slate-800 font-black text-3xl shadow-sm">
             !
@@ -75,7 +75,7 @@ export default function SlidePosPrecoce({ step }: { step: number }) {
          )}
       </ModalOverlay>
 
-      <Citation text="(Lubianca et al., 2020; Douglas et al., 2015)" />
+      <Citation text="(Lubianca Neto et al., 2022 · PMID 33472759; Douglas et al., 2015 · PMID 26255606)" />
     </div>
   );
 }

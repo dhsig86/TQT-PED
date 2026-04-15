@@ -10,7 +10,7 @@ export default function SlideCampo({ step }: { step: number }) {
   return (
     <div className="h-full flex flex-col gap-4 min-h-0 relative pb-6">
       {/* Timeline: 5 cards em colunas */}
-      <div className="grid grid-cols-5 gap-3 h-48 lg:h-56 shrink-0">
+      <div className="grid grid-cols-5 gap-3 h-36 lg:h-48 shrink-0">
         {timelineData.map((stage: any, index: number) => (
           <Reveal show={step >= index + 1} delay={index * 0.1} key={stage.year} className="h-full">
             <TimelineStage item={stage} openDefault={false} />

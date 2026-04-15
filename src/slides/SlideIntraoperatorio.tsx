@@ -70,7 +70,7 @@ export default function SlideIntraoperatorio({ step }: { step: number }) {
               <div className={`mb-6 p-4 rounded-full bg-white/10 shadow-sm ${cards[activeCard].iconColor}`}>
                 {cards[activeCard].icon}
               </div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-wider leading-tight drop-shadow-sm">
+              <h2 className="text-xl md:text-2xl lg:text-3xl font-black uppercase tracking-wide leading-tight drop-shadow-sm break-words">
                 {cards[activeCard].title}
               </h2>
             </div>

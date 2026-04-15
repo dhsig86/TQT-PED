@@ -7,9 +7,9 @@ export default function SlidePosTardio({ step }: { step: number }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="h-full flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center gap-8 lg:gap-12 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar min-h-0">
+    <div className="h-full flex flex-col md:flex-row justify-start md:justify-center items-start md:items-center gap-6 lg:gap-10 relative pb-8 overflow-y-auto min-h-0">
 
-      <div className="w-full md:w-1/2 flex flex-col justify-center gap-8 shrink-0">
+      <div className="w-full md:w-1/2 flex flex-col justify-center gap-5 shrink-0 min-w-0">
         <Reveal show={step >= 1}>
           <div className="space-y-4">
             <h2 className="text-3xl lg:text-5xl font-bold text-slate-800 leading-tight">
@@ -74,7 +74,7 @@ export default function SlidePosTardio({ step }: { step: number }) {
          </div>
       </ModalOverlay>
       
-      <Citation text="(Lubianca et al., 2020; Douglas et al., 2015)" />
+      <Citation text="(Lubianca Neto et al., 2022 · PMID 33472759; Roberts et al., 2019 · PMID 31251410)" />
     </div>
   );
 }
