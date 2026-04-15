@@ -58,7 +58,7 @@ export const slidesConfig = [
     bg: "from-slate-50 to-indigo-50",
     title: "Fatores Preditores Intraoperatórios",
     subtitle: "Erros Técnicos e Subestimação Posicional Definem a Base Para Complicações Tardias",
-    maxStep: 3,
+    maxStep: 5,
   },
   {
     id: "pos-precoce",

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { AlertCircle, Target, CheckCircle2, Plus } from 'lucide-react';
+import { AlertCircle, Target, CheckCircle2, Droplets, Wind, Plus } from 'lucide-react';
 import { Reveal, Citation, ModalOverlay } from '../components/ui';
 
 export default function SlideIntraoperatorio({ step }: { step: number }) {
@@ -8,26 +8,34 @@ export default function SlideIntraoperatorio({ step }: { step: number }) {
 
   const cards = [
     {
-      title: "Falso Trajeto (Via Errada)",
-      icon: <Target className="w-12 h-12" />,
-      text: "Dissecção lateral inadvertida da musculatura ao invés do incisivo central da traqueia cartilaginosa, causando perda rápida da via aérea e intubação do mediastino anterior. Resulta em hipóxia e óbito precoce no leito cirúrgico se não revertido imediatamente.",
-      source: "Pacheco et al., 2021 · Semin Pediatr Surg · PMID 34172211",
+      title: "Falso Trajeto (Via)",
+      icon: <Target className="w-10 h-10 lg:w-12 lg:h-12" />,
+      text: "Dissecção lateral inadvertida da musculatura ao invés do incisivo central da traqueia cartilaginosa, causando perda rápida da via aérea e intubação do mediastino anterior. Resulta em hipóxia grave.",
+      source: "Pacheco et al., 2021",
       color: "bg-slate-800",
       iconColor: "text-slate-400"
     },
     {
-      title: "Sangramento e Fuga Pleural",
-      icon: <AlertCircle className="w-12 h-12" />,
-      text: "A falta de hemostasia rigorosa desestabiliza o lactente nos primeiros dias pela formação maciça de coágulos na base do estoma. Há risco exacerbado de pneumotórax nas dissecções laterais profundas pois a pleura apical infantil atinge topografias mais altas no pescoço que no adulto.",
-      source: "Dal'Astra et al., 2017 · Braz J Otorhinolaryngol · PMID 27256033",
-      color: "bg-amber-600",
-      iconColor: "text-amber-200"
+      title: "Hemorragia",
+      icon: <Droplets className="w-10 h-10 lg:w-12 lg:h-12" />,
+      text: "Falta de hemostasia rigorosa intraoperatória que desestabiliza o lactente nos primeiros dias pela formação maciça de coágulos na base do estoma, gerando rolha primária.",
+      source: "Dal'Astra et al., 2017",
+      color: "bg-rose-600",
+      iconColor: "text-rose-200"
     },
     {
-      title: "Intubação Monobrônquica",
-      icon: <CheckCircle2 className="w-12 h-12" />,
-      text: "Erro milimétrico clássico: a extremidade do tubo de traqueostomia ultrapassa a traqueia diminuta e progride exclusivamente no brônquio fonte direito. Colapsa silenciosamente o pulmão contralateral, desenvolvendo atelectasias difusas no pós-operatório.",
-      source: "Pacheco et al., 2021 · Semin Pediatr Surg · PMID 34172211",
+      title: "Fuga Pleural",
+      icon: <Wind className="w-10 h-10 lg:w-12 lg:h-12" />,
+      text: "Risco exacerbado de pneumotórax nas dissecções laterais profundas. A pleura apical infantil atinge topografias mais altas no pescoço que no adulto, exigindo rigor na linha média.",
+      source: "Dal'Astra et al., 2017",
+      color: "bg-amber-500",
+      iconColor: "text-amber-100"
+    },
+    {
+      title: "Monobrônquica",
+      icon: <CheckCircle2 className="w-10 h-10 lg:w-12 lg:h-12" />,
+      text: "Erro milimétrico: a extremidade da cânula ultrapassa a traqueia diminuta e progride ao brônquio fonte direito. Colapsa o pulmão esquerdo e desenvolve atelectasias difusas.",
+      source: "Pacheco et al., 2021",
       color: "bg-indigo-600",
       iconColor: "text-indigo-200"
     }
@@ -42,7 +50,7 @@ export default function SlideIntraoperatorio({ step }: { step: number }) {
         </div>
       </Reveal>
 
-      <div className="grid lg:grid-cols-3 gap-6 flex-1 items-stretch mt-6 px-2">
+      <div className="grid lg:grid-cols-4 gap-4 lg:gap-6 flex-1 items-stretch mt-6 px-0 lg:px-2">
         {cards.map((card, i) => (
           <Reveal show={step >= i + 2} key={i} className="h-full">
             <motion.div
@@ -51,10 +59,10 @@ export default function SlideIntraoperatorio({ step }: { step: number }) {
               className="bg-white border border-slate-200/60 p-8 rounded-[2rem] h-full shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-shadow flex flex-col items-center justify-center text-center cursor-pointer group"
               onClick={() => setActiveCard(i)}
             >
-              <div className={`w-24 h-24 rounded-full flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform ${card.color} ${card.iconColor}`}>
+              <div className={`w-20 h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center mb-4 lg:mb-6 shadow-sm group-hover:scale-110 transition-transform ${card.color} ${card.iconColor}`}>
                 {card.icon}
               </div>
-              <h3 className="text-2xl font-bold text-slate-800 mb-6">{card.title}</h3>
+              <h3 className="text-xl lg:text-2xl font-bold text-slate-800 mb-4 lg:mb-6">{card.title}</h3>
               <div className="mt-auto rounded-full bg-slate-100 p-2 text-slate-500 group-hover:bg-slate-800 group-hover:text-white transition-colors shadow-sm">
                 <Plus className="w-5 h-5 flex-shrink-0" />
               </div>
