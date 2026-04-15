@@ -37,7 +37,7 @@ export const slidesConfig = [
     bg: "from-slate-50 to-blue-50",
     title: "Transição Epidemiológica nas Indicações",
     subtitle: "Antes → Transição → Agora → Impacto → Resposta em Segurança",
-    maxStep: 5,
+    maxStep: 7,
   },
   {
     id: "paciente",

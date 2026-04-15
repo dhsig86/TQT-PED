@@ -4,9 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Plus, X } from "lucide-react";
 import { style } from "../data";
 
-export function formatPercent(value: number) {
-  return `${value}%`;
-}
 
 export function Citation({ text }: { text: string }) {
   return (
