@@ -18,7 +18,7 @@ export default function SlideQuemComplica({ step }: { step: number }) {
           <Reveal show={step >= 4}>
              <div className="bg-slate-50 border border-slate-200 p-8 rounded-3xl mt-12 shadow-sm">
                <p className="font-semibold text-slate-700 leading-relaxed text-lg lg:text-xl">
-                 Lubianca (2020) atesta em meta-análise que a incidência de óbitos e complicações está atrelada exponencialmente a características indissociáveis do indivíduo hospedeiro na admissão emergencial e UTI: idade abaixo de 12 meses absolutos, índices de prematuridade ou extremidades sindrômicas pregressas.
+                 Lubianca Neto (2022) demonstra em revisão sistemática que a incidência de óbitos e complicações é significativamente maior em: <strong className="text-slate-900">idade inferior a 12 meses</strong>, prematuridade, baixo peso ao nascer e comorbidades crônicas associadas. Mortalidade relacionada à TQT chega a <strong className="text-rose-700">6%</strong>, predominantemente por obstrução e decanulação acidental.
                </p>
              </div>
           </Reveal>
@@ -47,7 +47,7 @@ export default function SlideQuemComplica({ step }: { step: number }) {
         </div>
       </div>
       
-      <Citation text="(Lubianca Neto et al., 2020)" />
+      <Citation text="(Lubianca Neto et al., 2022 · PMID 33472759)" />
     </div>
   );
 }
