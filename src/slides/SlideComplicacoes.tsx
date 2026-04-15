@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 import { Reveal, NodeItem, Citation } from '../components/ui';
-import { GraphCard } from '../components/GraphCard';
+import { ComplicationsChart } from '../components/ComplicationsChart';
 
 export default function SlideComplicacoes({ step }: { step: number }) {
   const count = Math.max(0, Math.min(5, step - 1));
@@ -86,11 +86,8 @@ export default function SlideComplicacoes({ step }: { step: number }) {
             </div>
           </div>
         </Reveal>
-
-        <Reveal show={step >= 3}>
-          <div className="h-full min-h-0">
-            <GraphCard count={count} />
-          </div>
+        <Reveal show={step >= 1} className="h-full min-h-0">
+          <ComplicationsChart step={step} />
         </Reveal>
       </div>
 

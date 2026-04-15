@@ -199,3 +199,38 @@ export const timelineData = [
     color: "from-emerald-400 to-emerald-500",
   },
 ];
+
+export const complicationsCuratedData = [
+  {
+    phase: "Intraoperatório",
+    stepIndex: 1,
+    rate: 5,
+    rateLabel: "< 5%",
+    types: ["Falso trajeto", "Hemorragia parestal", "Pneumotórax"],
+    color: "from-slate-500 to-slate-600",
+  },
+  {
+    phase: "Pós-Precoce",
+    stepIndex: 2,
+    rate: 15,
+    rateLabel: "~ 15%",
+    types: ["Obstrução primária (Rolha)", "Decanulação acidental"],
+    color: "from-amber-400 to-amber-500",
+  },
+  {
+    phase: "Pós-Tardio",
+    stepIndex: 3,
+    rate: 45,
+    rateLabel: "40—50%",
+    types: ["Granuloma estomal (Dominante)", "Traqueíte", "Estenose"],
+    color: "from-rose-400 to-rose-500",
+  },
+  {
+    phase: "Domicílio / PS",
+    stepIndex: 4,
+    rate: 25,
+    rateLabel: "Altas Visitas PS",
+    types: ["Celulite/Infecção", "Obstrução asfixiante", "Falha de reintubação"],
+    color: "from-violet-500 to-violet-600",
+  }
+];
