@@ -204,33 +204,36 @@ export default function App() {
            </div>
         )}
 
-        <motion.div
-          key={slide.id}
-          initial={{ opacity: 0, scale: 0.98, y: 15 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 1.02 }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          className={`${style.shell} p-5 md:p-8 flex flex-col shadow-2xl relative flex-1 min-h-0 overflow-hidden`}
-        >
-          {slide.id === "title" ? <SlideTitle step={step} /> : null}
-          {slide.id === "importancia" ? <SlideImpact step={step} /> : null}
-          {slide.id === "campo" ? <SlideCampo step={step} /> : null}
-          {slide.id === "paciente" ? <SlidePaciente step={step} /> : null}
-          {slide.id === "complicacoes" ? <SlideComplicacoes step={step} /> : null}
-          {slide.id === "intraoperatorio" ? <SlideIntraoperatorio step={step} /> : null}
-          {slide.id === "pos-precoce" ? <SlidePosPrecoce step={step} /> : null}
-          {slide.id === "pos-tardio" ? <SlidePosTardio step={step} /> : null}
-          {slide.id === "quatro-chaves" ? <SlideQuatroChaves step={step} /> : null}
-          {slide.id === "catastroficas" ? <SlideCatastroficas step={step} /> : null}
-          {slide.id === "quem-complica" ? <SlideQuemComplica step={step} /> : null}
-          {slide.id === "mismatch" ? <SlideMismatch step={step} /> : null}
-          {slide.id === "bundle" ? <SlideBundle step={step} /> : null}
-          {slide.id === "decanulacao" ? <SlideDecanulacao step={step} /> : null}
-          {slide.id === "takehome" ? <SlideTakehome step={step} /> : null}
-          {slide.id === "referencias" ? <SlideReferencias step={step} /> : null}
-          
-          <div id="overlay-root" className="absolute inset-0 z-50 pointer-events-none flex items-center justify-center rounded-[2rem] overflow-hidden" />
-        </motion.div>
+        <div className="relative flex-1 min-h-0">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, scale: 0.98, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 1.02 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+            className={`${style.shell} p-5 md:p-8 flex flex-col shadow-2xl relative h-full min-h-0 overflow-hidden`}
+          >
+            {slide.id === "title" ? <SlideTitle step={step} /> : null}
+            {slide.id === "importancia" ? <SlideImpact step={step} /> : null}
+            {slide.id === "campo" ? <SlideCampo step={step} /> : null}
+            {slide.id === "paciente" ? <SlidePaciente step={step} /> : null}
+            {slide.id === "complicacoes" ? <SlideComplicacoes step={step} /> : null}
+            {slide.id === "intraoperatorio" ? <SlideIntraoperatorio step={step} /> : null}
+            {slide.id === "pos-precoce" ? <SlidePosPrecoce step={step} /> : null}
+            {slide.id === "pos-tardio" ? <SlidePosTardio step={step} /> : null}
+            {slide.id === "quatro-chaves" ? <SlideQuatroChaves step={step} /> : null}
+            {slide.id === "catastroficas" ? <SlideCatastroficas step={step} /> : null}
+            {slide.id === "quem-complica" ? <SlideQuemComplica step={step} /> : null}
+            {slide.id === "mismatch" ? <SlideMismatch step={step} /> : null}
+            {slide.id === "bundle" ? <SlideBundle step={step} /> : null}
+            {slide.id === "decanulacao" ? <SlideDecanulacao step={step} /> : null}
+            {slide.id === "takehome" ? <SlideTakehome step={step} /> : null}
+            {slide.id === "referencias" ? <SlideReferencias step={step} /> : null}
+          </motion.div>
+
+          {/* overlay-root FORA do overflow-hidden: modais nao sao clipados */}
+          <div id="overlay-root" className="absolute inset-0 z-50 pointer-events-none rounded-[2rem]" />
+        </div>
 
         <ProgressDots index={index} />
       </div>
