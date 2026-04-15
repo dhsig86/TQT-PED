@@ -3,8 +3,8 @@ import { Reveal, Citation } from '../components/ui';
 
 export default function SlideQuemComplica({ step }: { step: number }) {
   return (
-    <div className="h-full flex flex-col justify-center py-6 min-h-0 relative pb-6">
-      <div className="flex-1 flex flex-col md:flex-row items-center gap-8 lg:gap-12 w-full min-h-0">
+    <div className="h-full flex flex-col justify-start xl:justify-center relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
+      <div className="flex-1 flex flex-col md:flex-row items-center gap-8 lg:gap-12 w-full min-h-0 shrink-0">
         <div className="w-full md:w-1/2 flex flex-col justify-center pl-4 lg:pl-8">
           <Reveal show={step >= 1}>
             <div className="text-3xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">

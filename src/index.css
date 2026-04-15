@@ -6,6 +6,29 @@
   body {
     @apply antialiased text-slate-900;
   }
+
+  /*
+   * ANTI-CLIPPING FRAMEWORK — Regra global de layout
+   * ─────────────────────────────────────────────────
+   * O bug de corte no Flexbox ocorre quando um container flex
+   * não tem `min-height: 0`, pois o browser usa `min-height: auto`
+   * por padrão, ignorando o overflow. Esta regra garante que todo
+   * filho de um container flex que declare altura explícita
+   * NUNCA será cortado silenciosamente.
+   */
+  .slide-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /* Qualquer filho flex direto de um elemento com min-h-0 herda a proteção */
+  .flex.flex-col > * {
+    min-height: 0;
+  }
 }
 
 .clip-risk-top {
@@ -16,4 +39,14 @@
 }
 .clip-risk-base {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

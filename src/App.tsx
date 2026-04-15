@@ -210,7 +210,7 @@ export default function App() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 1.02 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className={`${style.shell} p-5 md:p-8 flex flex-col shadow-2xl relative`}
+          className={`${style.shell} p-5 md:p-8 flex flex-col shadow-2xl relative flex-1 min-h-0 overflow-hidden`}
         >
           {slide.id === "title" ? <SlideTitle step={step} /> : null}
           {slide.id === "importancia" ? <SlideImpact step={step} /> : null}

@@ -7,8 +7,8 @@ export default function SlideComplicacoes({ step }: { step: number }) {
   const count = Math.max(0, Math.min(5, step - 1));
 
   return (
-    <div className="h-full flex flex-col justify-center gap-4 lg:gap-8 min-h-0 relative pb-6">
-      <Reveal show={step >= 1}>
+    <div className="h-full flex flex-col justify-start xl:justify-center gap-4 lg:gap-6 min-h-0 relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar">
+      <Reveal show={step >= 1} className="shrink-0">
         <div className="rounded-[1.75rem] border border-slate-200 bg-white shadow-sm p-6 lg:p-8">
           <div className="flex items-center gap-3 mb-6">
             <ShieldCheck className="w-8 h-8 text-emerald-600" />

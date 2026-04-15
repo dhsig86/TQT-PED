@@ -74,17 +74,23 @@ export default function SlideImpact({ step }: { step: number }) {
 
       <ModalOverlay open={activeStat !== null} setOpen={() => setActiveStat(null)}>
          {activeStat !== null && (
-            <div className="flex flex-col h-full bg-white relative">
-               <div className="p-10 lg:p-16 border-b border-slate-100 bg-slate-50/80 backdrop-blur-md text-center flex flex-col items-center justify-center">
-                  <div className="text-[8rem] lg:text-[10rem] font-black text-slate-800 tracking-tighter leading-none mb-4 drop-shadow-md">
-                     {stats[activeStat].number}<span className="text-4xl lg:text-6xl text-slate-500 font-bold ml-1">%</span>
+            <div className="p-8 md:p-12 lg:p-16 flex flex-col bg-white relative rounded-[2rem]">
+               <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
+                  <div className="flex flex-col items-center justify-center shrink-0">
+                     <div className="text-[5rem] md:text-[6.5rem] font-black text-slate-800 tracking-tighter leading-none mb-3">
+                        {stats[activeStat].number}<span className="text-3xl md:text-4xl text-slate-400 font-bold ml-1">%</span>
+                     </div>
+                     <div className={`text-xs md:text-sm uppercase font-bold tracking-[0.2em] px-4 py-2 rounded-full text-center
+                        ${activeStat === 0 ? "bg-amber-50 text-amber-700" : activeStat === 1 ? "bg-rose-50 text-rose-700" : "bg-purple-50 text-purple-700"}
+                     `}>
+                        {stats[activeStat].title}
+                     </div>
                   </div>
-                  <h2 className="text-2xl lg:text-3xl font-black uppercase tracking-widest text-slate-700">{stats[activeStat].title}</h2>
-               </div>
-               <div className="p-10 lg:p-16 bg-white flex flex-col items-center text-center flex-1 justify-center">
-                  <p className="text-xl lg:text-3xl text-slate-600 font-medium leading-relaxed max-w-3xl">
-                     {stats[activeStat].text}
-                  </p>
+                  <div className="flex flex-col text-center md:text-left flex-1 border-t md:border-t-0 md:border-l border-slate-100 pt-6 md:pt-0 md:pl-8 lg:pl-12 justify-center min-h-[140px]">
+                     <p className="text-xl md:text-2xl text-slate-600 font-medium leading-relaxed">
+                        {stats[activeStat].text}
+                     </p>
+                  </div>
                </div>
             </div>
          )}

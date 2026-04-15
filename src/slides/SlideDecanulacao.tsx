@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Network, ActivitySquare, Wind, ArrowRightCircle } from 'lucide-react';
+import { Network, ActivitySquare, Wind, ArrowRightCircle, Plus } from 'lucide-react';
+
 import { Reveal, Citation, ModalOverlay } from '../components/ui';
 
 export default function SlideDecanulacao({ step }: { step: number }) {
@@ -13,8 +14,8 @@ export default function SlideDecanulacao({ step }: { step: number }) {
   ];
 
   return (
-    <div className="h-full flex flex-col justify-center relative pb-6 min-h-0">
-       <Reveal show={step >= 1}>
+    <div className="h-full flex flex-col justify-start xl:justify-center relative pb-8 overflow-y-auto pt-2 pl-2 pr-4 -mr-4 no-scrollbar min-h-0">
+       <Reveal show={step >= 1} className="shrink-0">
          <div className="text-center mb-10 max-w-5xl mx-auto">
            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 leading-tight">
              Limiares Críticos da Decanulação Pediátrica
@@ -23,17 +24,21 @@ export default function SlideDecanulacao({ step }: { step: number }) {
          </div>
        </Reveal>
 
-       <div className="flex flex-col md:flex-row justify-center items-center lg:gap-4 mt-8 max-w-6xl mx-auto w-full flex-1 min-h-0">
+       <div className="flex flex-col md:flex-row justify-center items-center lg:gap-4 mt-8 max-w-6xl mx-auto w-full flex-1 min-h-0 shrink-0">
          {steps.map((s, i) => (
            <React.Fragment key={i}>
              <Reveal show={step >= i + 2}>
                <div 
-                 className={`flex flex-col items-center justify-center p-6 border rounded-[2rem] w-48 h-48 lg:w-56 lg:h-56 ${s.color} z-10 relative bg-white`}
+                 className={`flex flex-col items-center justify-center p-6 border rounded-[2rem] w-48 h-48 lg:w-56 lg:h-56 ${s.color} z-10 relative bg-white group`}
                  onClick={i === steps.length - 1 ? () => setOpen(true) : undefined}
                >
-                 <div className="w-12 h-12 mb-4 opacity-80">{s.icon}</div>
+                 <div className="w-12 h-12 mb-4 opacity-80 group-hover:scale-110 transition-transform">{s.icon}</div>
                  <div className="font-bold text-center text-sm lg:text-base leading-snug uppercase tracking-wide px-2">{s.title}</div>
-                 {i === steps.length - 1 && <div className="mt-4 text-[10px] font-bold text-violet-600 uppercase tracking-widest bg-violet-100 px-3 py-1 rounded-full">Alerta Residual</div>}
+                 {i === steps.length - 1 && (
+                     <div className="mt-4 rounded-full bg-violet-100 p-2 text-violet-500 group-hover:bg-violet-600 group-hover:text-white transition-colors shadow-sm">
+                        <Plus className="w-5 h-5 flex-shrink-0" />
+                     </div>
+                 )}
                </div>
              </Reveal>
              {i < steps.length - 1 && (
@@ -46,20 +51,24 @@ export default function SlideDecanulacao({ step }: { step: number }) {
        </div>
 
        <ModalOverlay open={open} setOpen={setOpen}>
-         <div className="p-12 lg:p-16 border-b border-slate-100 bg-violet-600 text-center text-white">
-            <ArrowRightCircle className="w-20 h-20 mx-auto text-violet-200 mb-6" />
-            <h2 className="text-4xl lg:text-5xl font-black uppercase tracking-wider mb-2">Pós-Decanulação</h2>
-            <div className="text-violet-200 font-bold tracking-widest uppercase text-xl">A Cicatrização Problemática</div>
-         </div>
-         <div className="p-12 lg:p-16 bg-white text-center flex flex-col items-center">
-            <div className="text-7xl lg:text-8xl font-black text-slate-800 tracking-tighter mb-8">42.6%</div>
-            <p className="text-xl lg:text-2xl text-slate-600 font-medium leading-relaxed max-w-3xl">
-              A literatura acena com dados inquietantes: dentre o grupo que atinge a exata etapa de efetuar a tentativa terminal de extubação com sucesso aparente, quase metade (42.6%) encerra o decurso evoluindo com <strong className="text-slate-800">fístula traqueocutânea persistente</strong>. Uma condição crônica que obriga a execução de um procedimento cirúrgico reparador invasivo <em className="text-slate-500">post-hoc</em> ao mesmo paciente. (Dal'Astra, 2017)
-            </p>
+         <div className="flex flex-col md:flex-row bg-white relative rounded-[2rem] overflow-hidden items-center md:items-stretch">
+            <div className="bg-violet-600 p-10 lg:p-12 text-center text-white flex flex-col items-center justify-center shrink-0 md:w-[40%]">
+               <div className="w-20 h-20 bg-violet-500 rounded-full flex items-center justify-center shadow-sm mb-6">
+                   <ArrowRightCircle className="w-10 h-10 text-white" />
+               </div>
+               <h2 className="text-3xl lg:text-4xl font-black uppercase tracking-wider leading-tight mb-2">Pós-Decanulação</h2>
+               <div className="text-violet-200 font-bold tracking-widest uppercase text-sm lg:text-base">A Cicatrização Problemática</div>
+            </div>
+            <div className="bg-white p-10 border-t md:border-t-0 md:border-l border-slate-100 lg:p-14 text-center md:text-left flex flex-col items-center md:items-start justify-center flex-1">
+               <div className="text-6xl lg:text-7xl font-black text-slate-800 tracking-tighter mb-6 bg-slate-50 border border-slate-200 rounded-[2rem] px-8 py-4 shadow-sm inline-block">42.6%</div>
+               <p className="text-lg lg:text-xl text-slate-700 leading-relaxed max-w-3xl font-medium">
+                 A literatura acena com dados inquietantes: dentre o grupo que atinge a exata etapa de efetuar a tentativa terminal de extubação com sucesso aparente, quase metade (42.6%) encerra o decurso evoluindo com <strong className="text-slate-800">fístula traqueocutânea persistente</strong>. Uma condição crônica que obriga a execução de um procedimento cirúrgico reparador invasivo <em className="text-slate-500">post-hoc</em> ao mesmo paciente.
+               </p>
+            </div>
          </div>
        </ModalOverlay>
        
-       <Citation text="(Douglas et al., 2015; Roberts et al., 2019)" />
+       <Citation text="(Dal'Astra et al., 2017; Douglas et al., 2015; Roberts et al., 2019)" />
     </div>
   );
 }
