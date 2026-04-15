@@ -7,9 +7,9 @@ export default function SlidePosTardio({ step }: { step: number }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="h-full flex flex-col md:flex-row justify-start items-start md:items-center gap-6 lg:gap-10 relative pb-8 overflow-y-auto overflow-x-hidden min-h-0 pt-4 px-2">
+    <div className="h-full flex flex-col md:flex-row justify-start items-start md:items-start gap-6 lg:gap-10 relative pb-8 overflow-y-auto overflow-x-hidden min-h-0 pt-4 px-2">
 
-      <div className="w-full md:w-1/2 lg:flex-1 flex flex-col justify-center gap-5 min-w-0">
+      <div className="w-full md:w-1/2 lg:flex-1 flex flex-col justify-start gap-5 min-w-0">
         <Reveal show={step >= 1}>
           <div className="space-y-4">
             <h2 className="text-3xl lg:text-5xl font-bold text-slate-800 leading-tight">
@@ -34,7 +34,7 @@ export default function SlidePosTardio({ step }: { step: number }) {
         </Reveal>
       </div>
 
-      <div className="w-full md:w-1/2 lg:flex-1 flex items-center justify-center p-4 min-h-0 relative">
+      <div className="w-full md:w-1/2 lg:flex-1 flex items-center justify-center self-start md:self-center p-4 min-h-0 relative">
         <Reveal show={step >= 3} delay={0.2} className="w-full max-w-sm relative flex justify-center mt-8 md:mt-0">
            <motion.div 
              animate={{ rotate: [0, 360] }}
