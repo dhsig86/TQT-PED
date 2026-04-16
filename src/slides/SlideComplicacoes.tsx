@@ -64,7 +64,7 @@ export default function SlideComplicacoes({ step }: { step: number }) {
               <NodeItem
                 color="bg-emerald-600"
                 title="Segurança"
-                text="Controle e Bundle"
+                text="Controle e Protocolo"
                 note="Protocolos baseados em evidências (Pacheco, 2021): dissecção em linha média, primeira troca controlada com 10–14 dias, cânula sobressalente no leito e treinamento de resgate domiciliar sistematizado."
                 delay={0}
               />

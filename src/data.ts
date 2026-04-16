@@ -105,7 +105,7 @@ export const slidesConfig = [
   {
     id: "bundle",
     bg: "from-emerald-50 to-teal-50",
-    title: "O Bundle de Segurança Baseado em Evidências",
+    title: "O Protocolo de Segurança Baseado em Evidências",
     subtitle: "A Sistematização de Processos Que Previne a Complicação Antes Dela Existir",
     maxStep: 8,
   },
@@ -189,7 +189,7 @@ export const timelineData = [
     year: "Resposta atual",
     label: "SEGURANÇA",
     value: 100,
-    short: "Bundle preventivo",
+    short: "Protocolo preventivo",
     detail: "Técnica segura, escolha correta da cânula, primeira troca controlada, protocolo e treinamento do cuidador passam a modular o risco.",
     bullets: [
       "Equipe interdisciplinar.",

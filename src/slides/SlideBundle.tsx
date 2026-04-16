@@ -36,7 +36,7 @@ export default function SlideBundle({ step }: { step: number }) {
               <Shield className="w-8 h-8" />
             </div>
             <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 leading-tight">
-              Protocolo Bundle de Segurança Preventivo
+              Protocolo de Segurança Preventivo
             </h2>
             <p className="text-sm lg:text-base text-slate-600 mt-2 font-medium">
               Mitigação institucional baseada na profilaxia estruturada do evento crítico e da morbidade local
