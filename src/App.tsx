@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { style, slidesConfig } from "./data";
+import { useFitScreen } from "./hooks/useFitScreen";
 
 // Import das páginas dos slides
 import SlideTitle from "./slides/SlideTitle";
@@ -139,6 +140,7 @@ export default function App() {
   const [index, setIndex] = useState(0);
   const [step, setStep] = useState(0);
   const slide = slidesConfig[index];
+  const scale = useFitScreen(1600, 900);
 
   useEffect(() => {
     setStep(0);
@@ -148,9 +150,17 @@ export default function App() {
 
   return (
     <div
-      className={`h-screen w-full overflow-hidden bg-gradient-to-br ${slide.bg} p-4 md:p-6 transition-colors duration-700 ease-in-out text-slate-800 font-sans`}
+      className={`h-screen w-full overflow-hidden bg-gradient-to-br ${slide.bg} flex items-center justify-center transition-colors duration-700 ease-in-out text-slate-800 font-sans`}
     >
-      <div className="mx-auto h-full max-w-[1700px] aspect-[16/9] max-h-[calc(100vh-2rem)] flex flex-col gap-4">
+      <div 
+        style={{
+          width: "1600px",
+          height: "900px",
+          transform: `scale(${scale})`,
+          transformOrigin: "center center",
+        }}
+        className="flex flex-col gap-6 shrink-0 p-8 lg:p-12"
+      >
         {slide.id !== "title" ? (
           <div className="flex items-start justify-between gap-4 shrink-0 px-2 lg:px-4 pt-1 lg:pt-2 pb-2">
             <div className="space-y-3 md:space-y-4 max-w-5xl">
